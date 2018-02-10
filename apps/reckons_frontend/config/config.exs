@@ -10,8 +10,7 @@ config :reckons_frontend, ReckonsFrontend.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "7fD7bO2EHhVK45VjVMGtn9g0XEQ8tcM39bhs09wx5y+qtYfhjVEzp2WVYWBE3kft",
   render_errors: [view: ReckonsFrontend.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: ReckonsFrontend.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: ReckonsFrontend.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -20,4 +19,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"
