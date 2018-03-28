@@ -1,17 +1,3 @@
-defmodule Repayment do
-  @keys [:interest_portion, :principal_portion, :total]
-  @enforce_keys @keys
-  defstruct @keys
-
-  def new(interest_portion, principal_portion, total) do
-    %__MODULE__{
-      interest_portion: interest_portion,
-      principal_portion: principal_portion,
-      total: total
-    }
-  end
-end
-
 defmodule Loan do
   @moduledoc """
   """
@@ -98,18 +84,16 @@ defmodule Loan do
     |> Enum.sum()
   end
 
-  def monthly_repayment_amount(
-        principal,
-        interest_rate,
-        monthly_repayment \\ 0,
-        monthly_repayments
-      ) do
-    # ask tyler.
-    # monthly repayments / 12 == number of years loan is for
-    # lazy stream of data? Perhaps we can use generators, to determine if we've used all the amount
-    # paid enough interest and principal off?
-    # we should be able to calculate a total cost of the loan?
-    # WTF this is mental hard.
-    # needs more calculus??
+  def monthly_repayment_amount(%Loan{
+        principal: principal,
+        interest_rate: interest_rate,
+        monthly_repayments: monthly_repayments
+      }) do
+    # What even...
+    v = 1 / (1 + interest_rate)
+    y = :math.pow(v, (1 / 12))
+    x = y * (1 - (:math.pow(v, (monthly_repayments/12))))
+    z = x / (1 - y)
+    principal / z
   end
 end
