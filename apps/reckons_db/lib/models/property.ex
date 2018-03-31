@@ -2,9 +2,6 @@ defmodule ReckonsDB.Property do
   @moduledoc """
   """
   use Ecto.Schema
-  import Ecto
-  import Ecto.Changeset
-  import Ecto.Query
 
   @type t :: %__MODULE__{}
 
