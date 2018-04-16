@@ -1,18 +1,5 @@
 defmodule ReckonsDB do
   @moduledoc """
-  Documentation for ReckonsDB.
+  Handles persistance of the app.
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> ReckonsDB.hello
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end

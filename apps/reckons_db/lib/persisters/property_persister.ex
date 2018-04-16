@@ -1,4 +1,4 @@
-defmodule ReckonsAPI.PropertyPersister do
+defmodule ReckonsDB.PropertyPersister do
   alias ReckonsDB.{Property, Repo}
 
   @spec create(integer) :: {:ok, Property.t()} | {:error, Ecto.Changeset.t()}
