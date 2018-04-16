@@ -1,5 +1,6 @@
 defmodule ReckonsDB.Portfolio do
   @moduledoc """
+  Portfolios are the root of the data model. They have many `NestDB.Property`'s, and we roll from there
   """
   use Ecto.Schema
   import Ecto
